@@ -1,0 +1,237 @@
+{
+    "autonomous_systems": [
+       {
+         "as_id": 1,
+         "neighbors_loopback":["2001:DB8:1::1","2001:DB8:2::1","2001:DB8:3::1","2001:DB8:4::1","2001:DB8:5::1","2001:DB8:6::1","2001:DB8:7::1"],
+         "routers": {
+           "i1": {
+             "router_id": "1.1.1.1",
+             "protocol": "RIP",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i2", "ip_address": "2001:192:168:1::1/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i3", "ip_address": "2001:192:168:2::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:1::1/64"}
+             ],
+             "iBGP":{
+              "ipv6_address":"2001:DB8:1::1"
+            }
+          },
+  
+           "i2": {
+             "router_id": "2.2.2.2",
+             "protocol": "RIP",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i1", "ip_address": "2001:192:168:1::2/64"},
+               {"interface_id": "GigabitEthernet3/0", "link_to": "i3", "ip_address": "2001:192:168:3::1/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i4", "ip_address": "2001:192:168:4::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:2::s1/64"}
+             ],
+             "iBGP":{
+              "ipv6_address":"2001:DB8:2::1"
+            }
+           },
+           "i3": {
+             "router_id": "3.3.3.3",
+             "protocol": "RIP",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i5", "ip_address": "2001:192:168:5::1/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i1", "ip_address": "2001:192:168:2::2/64"},
+               {"interface_id": "GigabitEthernet3/0", "link_to": "i2", "ip_address": "2001:192:168:3::2/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:3::1/64"}
+             ],
+             "iBGP":{
+              "ipv6_address":"2001:DB8:3::1"
+            }
+           },
+           "i4": {
+             "router_id": "4.4.4.4",
+             "protocol": "RIP",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i2", "ip_address": "2001:192:168:4::2/64"},
+               {"interface_id": "GigabitEthernet3/0", "link_to": "i5", "ip_address": "2001:192:168:6::1/64"},
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i6", "ip_address": "2001:192:168:7::1/64"},
+               {"interface_id": "GigabitEthernet4/0", "link_to": "i7", "ip_address": "2001:192:168:8::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:4::1/64"}
+  
+  
+             ],
+             "iBGP":{
+              "ipv6_address":"2001:DB8:4::1"
+            }
+           },
+           "i5": {
+             "router_id": "5.5.5.5",
+             "protocol": "RIP",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i3", "ip_address": "2001:192:168:5::2/64"},
+               {"interface_id": "GigabitEthernet3/0", "link_to": "i4", "ip_address": "2001:192:168:6::2/64"},
+               {"interface_id": "GigabitEthernet4/0", "link_to": "i6", "ip_address": "2001:192:168:9::1/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i7", "ip_address": "2001:192:168:10::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:5::1/64"}
+  
+  
+             ],
+             "iBGP":{
+              "ipv6_address":"2001:DB8:5::1"
+            }
+           },
+           "i6": {
+             "router_id": "6.6.6.6",
+             "protocol": "RIP",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i4", "ip_address": "2001:192:168:7::2/64"},
+               {"interface_id": "GigabitEthernet4/0", "link_to": "i5", "ip_address": "2001:192:168:9::2/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i8", "ip_address": "2001:192:168:21::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:6::1/64"}
+  
+             ],
+             "iBGP":{
+               "ipv6_address":"2001:DB8:6::1",
+               "non_loopback_neighbor":"2001:192:168:21::2"
+             },
+             "eBGP": {
+               "AS_number": 1,
+               "ipv6_address": "2001:DB8:6::1",
+               "networks": ["2001:192:168:1::/64", "2001:192:168:2::/64","2001:192:168:3::/64","2001:192:168:4::/64","2001:192:168:5::/64","2001:192:168:6::/64","2001:192:168:7::/64","2001:192:168:8::/64","2001:192:168:9::/64","2001:192:168:21::/64","2001:192:168:22::/64","2001:192:168:10::/64"]
+              }
+           },
+           "i7": {
+             "router_id": "7.7.7.7",
+             "protocol": "RIP",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet4/0", "link_to": "i4", "ip_address": "2001:192:168:8::2/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i5", "ip_address": "2001:192:168:10::2/64"},
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i9", "ip_address": "2001:192:168:22::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:7::1/64"}
+             ],
+             "iBGP":{
+               "ipv6_address":"2001:DB8:7::1",
+               "non_loopback_neighbor":"2001:192:168:22::2"
+             },
+             "eBGP": {
+               "AS_number": 1,
+               "ipv6_address": "2001:DB8:7::1",
+               "networks": ["2001:192:168:1::/64", "2001:192:168:2::/64","2001:192:168:3::/64","2001:192:168:4::/64","2001:192:168:5::/64","2001:192:168:6::/64","2001:192:168:7::/64","2001:192:168:8::/64","2001:192:168:9::/64","2001:192:168:10::/64","2001:192:168:22::/64","2001:192:168:21::/64"]
+              }
+           }
+         }
+        },
+      
+  
+        
+       {
+         "as_id": 2,
+         "neighbors_loopback":["2001:DB8:8::1","2001:DB8:9::1","2001:DB8:10::1","2001:DB8:11::1","2001:DB8:12::1","2001:DB8:13::1","2001:DB8:14::1"],
+         "routers": {
+           "i8": {
+             "router_id": "8.8.8.8",
+             "protocol": "OSPF",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i10", "ip_address": "2001:192:168:11::1/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i6", "ip_address": "2001:192:168:21::2/64"},
+               {"interface_id": "GigabitEthernet4/0", "link_to": "i11", "ip_address": "2001:192:168:12::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:8::1/64"}
+             ],
+             "iBGP": {
+              "ipv6_address":"2001:DB8:8::1",
+              "non_loopback_neighbor":"2001:192:168:21::1"
+             },
+              "eBGP": {
+               "AS_number": 2,
+               "ipv6_address": "2001:DB8:8::1",
+               "networks": ["2001:192:168:11::/64", "2001:192:168:12::/64","2001:192:168:13::/64","2001:192:168:14::/64","2001:192:168:15::/64","2001:192:168:16::/64","2001:192:168:17::/64","2001:192:168:18::/64","2001:192:168:19::/64","2001:192:168:20::/64","2001:192:168:21::/64","2001:192:168:22::/64"]
+               }
+           },
+           "i9": {
+             "router_id": "9.9.9.9",
+             "protocol": "OSPF",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i7", "ip_address": "2001:192:168:22::2/64"},
+               {"interface_id": "GigabitEthernet4/0", "link_to": "i10", "ip_address": "2001:192:168:13::1/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i11", "ip_address": "2001:192:168:14::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:9::1/64"}
+             ],
+             "iBGP": {
+              "ipv6_address":"2001:DB8:9::1/64",
+              "non_loopback_neighbor":"2001:192:168:22::1"
+             },
+              "eBGP": {
+               "AS_number": 2,
+               "ipv6_address": "2001:DB8:9::1",
+               "networks":  ["2001:192:168:11::/64", "2001:192:168:12::/64","2001:192:168:13::/64","2001:192:168:14::/64","2001:192:168:15::/64","2001:192:168:16::/64","2001:192:168:17::/64","2001:192:168:18::/64","2001:192:168:19::/64","2001:192:168:20::/64","2001:192:168:22::/64","2001:192:168:21::/64"]
+               }
+           },
+           "i10": {
+             "router_id": "10.10.10.10",
+             "protocol": "OSPF",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i8", "ip_address": "2001:192:168:11::2/64"},
+               {"interface_id": "GigabitEthernet4/0", "link_to": "i9", "ip_address": "2001:192:168:13::2/64"},
+               {"interface_id": "GigabitEthernet3/0", "link_to": "i11", "ip_address": "2001:192:168:15::1/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i12", "ip_address": "2001:192:168:16::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:10::1/64"}
+  
+             ],
+             "iBGP":{
+              "ipv6_address":"2001:DB8:10::1"
+            }
+           },
+           "i11": {
+             "router_id": "11.11.11.11",
+             "protocol": "OSPF",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet4/0", "link_to": "i8", "ip_address": "2001:192:168:12::2/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i9", "ip_address": "2001:192:168:14::2/64"},
+               {"interface_id": "GigabitEthernet3/0", "link_to": "i10", "ip_address": "2001:192:168:15::2/64"},
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i13", "ip_address": "2001:192:168:17::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:11::1/64"}
+  
+  
+             ],
+             "iBGP":{
+              "ipv6_address":"2001:DB8:11::1"
+            }
+           },
+           "i12":{
+             "router_id": "12.12.12.12",
+             "protocol": "OSPF",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i10", "ip_address": "2001:192:168:16::2/64"},
+               {"interface_id": "GigabitEthernet3/0", "link_to": "i13", "ip_address": "2001:192:168:18::1/64"},
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i14", "ip_address": "2001:192:168:19::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:12::1/64"}
+             ],
+             "iBGP":{
+              "ipv6_address":"2001:DB8:12::1"
+            }
+           },
+           "i13": {
+             "router_id": "13.13.13.13",
+             "protocol": "OSPF",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i11", "ip_address": "2001:192:168:17::2/64"},
+               {"interface_id": "GigabitEthernet3/0", "link_to": "i12", "ip_address": "2001:192:168:18::2/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i14", "ip_address": "2001:192:168:20::1/64"},
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:13::1/64"}
+             ],
+             "iBGP":{
+              "ipv6_address":"2001:DB8:13::1"
+            }
+           },
+           "i14": {
+             "router_id": "14.14.14.14",
+             "protocol": "OSPF",
+             "interfaces": [
+               {"interface_id": "GigabitEthernet1/0", "link_to": "i12", "ip_address": "2001:192:168:19::2/64"},
+               {"interface_id": "GigabitEthernet2/0", "link_to": "i13", "ip_address": "2001:192:168:20::2/64"} ,
+               {"interface_id": "Loopback0", "ip_address": "2001:DB8:14::1/64"}              
+             ],
+             "iBGP":{
+              "ipv6_address":"2001:DB8:14::1"
+            }
+          }
+         }       
+       } 
+    ]
+   }
+  
