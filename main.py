@@ -99,7 +99,7 @@ def config(json_data, output):
 output_directory = './configs'
 
 with open('intent_file_big_network.json', 'r') as file:
-    data = json.load(file)
+    json = json.load(file)
 
 
-config(data, output_directory)
+config(json, output_directory)
